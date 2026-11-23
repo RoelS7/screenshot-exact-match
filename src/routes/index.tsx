@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import {
   Phone, Mail, MapPin, Menu, X, ChevronDown, HeartHandshake, Users, Star, Activity,
-  Dumbbell, Droplets, Crosshair, Baby, Clock, Facebook, MessageCircle, Plus,
+  Dumbbell, Droplets, Crosshair, Baby, Puzzle, Clock, Facebook, MessageCircle, Plus,
 } from "lucide-react";
 import logo from "@/assets/kinepeer-logo.png.asset.json";
 
@@ -31,6 +31,7 @@ const SPECS = [
   { id: "lymfedrainage", icon: Droplets, title: "Lymfedrainage", text: "Een zachte massagetechniek die vochtophoping vermindert en het lymfesysteem ondersteunt.", who: "Mensen met oedeem, na operaties of na kankerbehandelingen.", more: "Lymfedrainage wordt vaak gecombineerd met compressie en oefeningen. We stemmen de behandeling af op jouw situatie en volgen ze nauw op." },
   { id: "dry-needling", icon: Crosshair, title: "Dry needling", text: "Met een fijne naald behandelen we triggerpoints in gespannen spieren. Dat geeft vaak snel verlichting.", who: "Wie last heeft van hardnekkige spierpijn, spanning of hoofdpijn.", more: "Dry needling is een aanvulling op je behandeling, nooit een losstaande oplossing. We combineren het steeds met oefentherapie." },
   { id: "prenataal", icon: Baby, title: "Pre- en postnatale kine", text: "Begeleiding tijdens de zwangerschap en na de bevalling, met bijzondere aandacht voor de bekkenbodem.", who: "Aanstaande en jonge mama's.", more: "We helpen bij bekkenpijn, rugklachten en incontinentie, en werken aan een veilig herstel van buikspieren en bekkenbodem na de bevalling." },
+  { id: "kinderkine", icon: Puzzle, title: "Kinderkinesitherapie", text: "Speelse begeleiding van baby's en kinderen bij hun motorische ontwikkeling: kruipen, stappen, evenwicht en coördinatie.", who: "Kinderen met een motorische achterstand, houterige of onhandige bewegingen, of problemen na een blessure.", more: "We werken op het tempo van je kind, via spel en oefeningen die leuk zijn. Ouders krijgen tips mee om thuis verder te oefenen, en we stemmen af met de school of de kinderarts waar nodig." },
 ];
 const TEAM = [
   { name: "Frank Luijs", initials: "FL", role: "Kinesitherapeut, zaakvoerder", tags: ["Manuele therapie", "Sportkine"] },
