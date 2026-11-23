@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import {
   Phone, Mail, MapPin, Menu, X, ChevronDown, HeartHandshake, Users, Star, Activity,
-  Dumbbell, Droplets, Crosshair, Baby, Clock, Facebook, Plus,
+  Dumbbell, Droplets, Crosshair, Baby, Clock, Facebook, MessageCircle, Plus,
 } from "lucide-react";
 import logo from "@/assets/kinepeer-logo.png.asset.json";
 
@@ -39,7 +39,7 @@ const TEAM = [
   { name: "Naam therapeut", initials: "?", role: "Kinesitherapeut", tags: ["Pre- en postnatale kine", "Bekkenbodem"] },
 ];
 const FAQ = [
-  ["Hoe maak ik een afspraak?", "Bel ons op 0475 91 73 06. Krijg je ons niet meteen te pakken? Laat een bericht na, dan bellen we je zo snel mogelijk terug."],
+  ["Hoe maak ik een afspraak?", "Bel ons op 0475 91 73 06. Krijg je ons niet meteen te pakken? Of vraag online een afspraak aan via het formulier onderaan, of stuur een WhatsApp. Tijdens behandelingen nemen we niet altijd op, maar we bellen je zo snel mogelijk terug."],
   ["Heb ik een voorschrift nodig?", "Voor terugbetaling heb je een voorschrift van je huisarts of specialist nodig. Zonder voorschrift kan je ook terecht, maar dan krijg je geen tussenkomst van de mutualiteit."],
   ["Hoe zit het met terugbetaling via de mutualiteit?", "Met een voorschrift betaalt de mutualiteit een groot deel van je behandeling terug. Je betaalt bij ons en krijgt een getuigschrift dat je bij je mutualiteit indient. Sommige aanvullende verzekeringen komen ook tussen in bijvoorbeeld dry needling."],
   ["Wat breng ik mee naar mijn eerste afspraak?", "Je identiteitskaart, je voorschrift, een handdoek en makkelijke kleding waarin je vlot kan bewegen. Heb je verslagen of beelden van onderzoeken? Breng die zeker ook mee."],
@@ -120,6 +120,11 @@ function Index() {
         </nav>
       </div>
 
+      {/* WHATSAPP */}
+      <a href="https://wa.me/32475917306" target="_blank" rel="noreferrer" aria-label="Stuur ons een WhatsApp" className="fixed bottom-5 right-5 z-30 grid h-14 w-14 place-items-center rounded-full bg-whatsapp text-primary-foreground shadow-lift transition-transform hover:scale-110">
+        <MessageCircle className="h-7 w-7" />
+      </a>
+
       <main>
         {/* HERO */}
         <section id="home" className="mx-auto max-w-7xl px-5 pb-20 pt-28 lg:pt-36">
@@ -130,7 +135,7 @@ function Index() {
               <p className="mt-6 max-w-xl text-lg text-muted-foreground">Groepspraktijk voor kinesitherapie, manuele therapie en sportrevalidatie. Persoonlijke begeleiding, van eerste klacht tot volledig herstel.</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href={`tel:${TEL}`} className={btnAccent}><Phone className="h-4 w-4" />Bel voor een afspraak</a>
-                <a href="#specialisaties" className={btnOutline}>Onze specialisaties</a>
+                <a href="#afspraak" className={btnOutline}>Online afspraak aanvragen</a>
               </div>
             </Reveal>
             <Reveal delay={150} className="relative">
@@ -224,7 +229,7 @@ function Index() {
         {/* CONTACT */}
         <section id="contact" className="bg-secondary/60 py-24">
           <div className="mx-auto max-w-7xl px-5">
-            <Reveal className="max-w-2xl"><Eyebrow>Contact</Eyebrow><h2 className="text-3xl text-primary sm:text-4xl lg:text-5xl">Kom langs of maak een afspraak.</h2></Reveal>
+            <Reveal className="max-w-2xl"><Eyebrow>Contact</Eyebrow><h2 className="text-3xl text-primary sm:text-4xl lg:text-5xl">Kom langs of vraag een afspraak aan.</h2></Reveal>
             <div className="mt-12 grid gap-8 lg:grid-cols-2">
               <Reveal className="overflow-hidden rounded-3xl bg-card shadow-soft">
                 <div className="space-y-5 p-8">
@@ -234,20 +239,36 @@ function Index() {
                 </div>
                 <iframe title="Kaart KinePeer, Burkel Peer" src="https://maps.google.com/maps?q=Burkel%2C%203990%20Peer&z=15&output=embed" className="h-80 w-full border-0" loading="lazy" />
               </Reveal>
-              <Reveal delay={120} className="rounded-3xl bg-card p-8 shadow-soft">
-                <h3 className="text-2xl text-primary">Stuur ons een bericht</h3>
-                <p className="mt-2 text-sm text-muted-foreground">We antwoorden meestal binnen één werkdag.</p>
+              <Reveal delay={120} className="scroll-mt-28 rounded-3xl bg-card p-8 shadow-soft">
+                <div id="afspraak" className="scroll-mt-28" />
+                <h3 className="text-2xl text-primary">Online afspraak aanvragen</h3>
+                <p className="mt-2 text-sm text-muted-foreground">Laat je gegevens en voorkeur achter. We bellen je binnen één werkdag terug om je afspraak te bevestigen.</p>
                 <form onSubmit={submit} className="mt-6 grid gap-4">
                   {[["naam", "Naam", "text"], ["email", "E-mail", "email"], ["telefoon", "Telefoon", "tel"]].map(([n, l, t]) => (
                     <label key={n} className="grid gap-1.5 text-sm font-medium">{l}
-                      <input name={n} type={t} required={n !== "telefoon"} className="rounded-xl border border-input bg-background px-4 py-3 font-normal outline-none focus:ring-2 focus:ring-ring" />
+                      <input name={n} type={t} required={n !== "email"} className="rounded-xl border border-input bg-background px-4 py-3 font-normal outline-none focus:ring-2 focus:ring-ring" />
                     </label>
                   ))}
-                  <label className="grid gap-1.5 text-sm font-medium">Bericht
-                    <textarea name="bericht" rows={4} required className="rounded-xl border border-input bg-background px-4 py-3 font-normal outline-none focus:ring-2 focus:ring-ring" />
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <label className="grid gap-1.5 text-sm font-medium">Behandeling
+                      <select name="behandeling" className="rounded-xl border border-input bg-background px-4 py-3 font-normal outline-none focus:ring-2 focus:ring-ring" defaultValue="">
+                        <option value="" disabled>Kies een behandeling</option>
+                        {SPECS.map((s) => <option key={s.id}>{s.title}</option>)}
+                        <option>Weet ik nog niet</option>
+                      </select>
+                    </label>
+                    <label className="grid gap-1.5 text-sm font-medium">Voorkeursmoment
+                      <select name="moment" className="rounded-xl border border-input bg-background px-4 py-3 font-normal outline-none focus:ring-2 focus:ring-ring" defaultValue="">
+                        <option value="" disabled>Kies een moment</option>
+                        <option>Voormiddag</option><option>Namiddag</option><option>Avond (na 17u)</option><option>Geen voorkeur</option>
+                      </select>
+                    </label>
+                  </div>
+                  <label className="grid gap-1.5 text-sm font-medium">Je klacht of vraag (optioneel)
+                    <textarea name="bericht" rows={3} className="rounded-xl border border-input bg-background px-4 py-3 font-normal outline-none focus:ring-2 focus:ring-ring" />
                   </label>
-                  <button type="submit" className={btnAccent}>Verstuur bericht</button>
-                  {sent && <p className="text-sm text-primary">Bedankt! We nemen snel contact met je op.</p>}
+                  <button type="submit" className={btnAccent}>Afspraak aanvragen</button>
+                  {sent && <p className="text-sm text-primary">Bedankt! We bellen je binnen één werkdag terug om je afspraak te bevestigen.</p>}
                 </form>
               </Reveal>
             </div>
