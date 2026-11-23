@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import {
   Phone, Mail, MapPin, Menu, X, ChevronDown, HeartHandshake, Users, Star, Activity,
-  Dumbbell, Droplets, Crosshair, Baby, Puzzle, Clock, Facebook, MessageCircle, Plus,
+  Dumbbell, Droplets, Crosshair, Baby, Clock, Facebook, MessageCircle, Plus,
 } from "lucide-react";
 import logo from "@/assets/kinepeer-logo.png.asset.json";
 
@@ -11,10 +11,11 @@ const HERO = "https://images.unsplash.com/photo-1645005513713-9e2b92a687d3?auto=
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "KinePeer – Kinesitherapie in Peer | Groepspraktijk Frank Luijs" },
-      { name: "description", content: "Groepspraktijk voor kinesitherapie, manuele therapie, sportkine, lymfedrainage, dry needling en pre- en postnatale kine in Peer." },
-      { property: "og:title", content: "KinePeer – Groepspraktijk Frank Luijs" },
-      { property: "og:description", content: "Alle expertise voor jouw herstel, samen onder één dak in Peer." },
+      { title: "Ontwerpvoorstel KinePeer | Atelier Smits" },
+      { name: "robots", content: "noindex, nofollow" },
+      { name: "description", content: "Ontwerpvoorstel door Atelier Smits. Geen officiële website van KinePeer." },
+      { property: "og:title", content: "Ontwerpvoorstel KinePeer | Atelier Smits" },
+      { property: "og:description", content: "Ontwerpvoorstel door Atelier Smits. Geen officiële website van KinePeer." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:image", content: HERO },
@@ -31,13 +32,11 @@ const SPECS = [
   { id: "lymfedrainage", icon: Droplets, title: "Lymfedrainage", text: "Een zachte massagetechniek die vochtophoping vermindert en het lymfesysteem ondersteunt.", who: "Mensen met oedeem, na operaties of na kankerbehandelingen.", more: "Lymfedrainage wordt vaak gecombineerd met compressie en oefeningen. We stemmen de behandeling af op jouw situatie en volgen ze nauw op." },
   { id: "dry-needling", icon: Crosshair, title: "Dry needling", text: "Met een fijne naald behandelen we triggerpoints in gespannen spieren. Dat geeft vaak snel verlichting.", who: "Wie last heeft van hardnekkige spierpijn, spanning of hoofdpijn.", more: "Dry needling is een aanvulling op je behandeling, nooit een losstaande oplossing. We combineren het steeds met oefentherapie." },
   { id: "prenataal", icon: Baby, title: "Pre- en postnatale kine", text: "Begeleiding tijdens de zwangerschap en na de bevalling, met bijzondere aandacht voor de bekkenbodem.", who: "Aanstaande en jonge mama's.", more: "We helpen bij bekkenpijn, rugklachten en incontinentie, en werken aan een veilig herstel van buikspieren en bekkenbodem na de bevalling." },
-  { id: "kinderkine", icon: Puzzle, title: "Kinderkinesitherapie", text: "Speelse begeleiding van baby's en kinderen bij hun motorische ontwikkeling: kruipen, stappen, evenwicht en coördinatie.", who: "Kinderen met een motorische achterstand, houterige of onhandige bewegingen, of problemen na een blessure.", more: "We werken op het tempo van je kind, via spel en oefeningen die leuk zijn. Ouders krijgen tips mee om thuis verder te oefenen, en we stemmen af met de school of de kinderarts waar nodig." },
 ];
-const TEAM = [
-  { name: "Frank Luijs", initials: "FL", role: "Kinesitherapeut, zaakvoerder", tags: ["Manuele therapie", "Sportkine"] },
-  { name: "Charlotte Hoeben", initials: "CH", role: "Kinesitherapeut", tags: ["Kinderkine", "Motorische problemen", "Lymfedrainage"] },
-  { name: "Naam therapeut", initials: "?", role: "Kinesitherapeut", tags: ["Dry needling", "Sportrevalidatie"] },
-  { name: "Naam therapeut", initials: "?", role: "Kinesitherapeut", tags: ["Pre- en postnatale kine", "Bekkenbodem"] },
+const TEAM: { name: string; initials: string; role: string; tags: string[] }[] = [
+  { name: "Frank Luijs", initials: "FL", role: "Kinesitherapeut, zaakvoerder", tags: [] },
+  { name: "Silke Vranken", initials: "SV", role: "Team KinePeer", tags: [] },
+  { name: "Jelle Van der Have", initials: "JV", role: "Team KinePeer", tags: [] },
 ];
 const FAQ = [
   ["Hoe maak ik een afspraak?", "Bel ons op 0475 91 73 06. Krijg je ons niet meteen te pakken? Of vraag online een afspraak aan via het formulier onderaan, of stuur een WhatsApp. Tijdens behandelingen nemen we niet altijd op, maar we bellen je zo snel mogelijk terug."],
@@ -79,8 +78,14 @@ function Index() {
 
   return (
     <div className="min-h-screen overflow-x-hidden">
+      {/* CONCEPT BANNER */}
+      <div role="note" className="fixed inset-x-0 top-0 z-[60] flex h-9 items-center justify-center bg-foreground px-4 text-center text-xs font-medium text-background sm:text-sm">
+        <span className="sm:hidden">Ontwerpvoorstel Atelier Smits – geen officiële website</span>
+        <span className="hidden sm:inline">Ontwerpvoorstel door Atelier Smits – geen officiële website van KinePeer</span>
+      </div>
+
       {/* HEADER */}
-      <header className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${scrolled ? "bg-background/90 shadow-soft backdrop-blur-md" : ""}`}>
+      <header className={`fixed inset-x-0 top-9 z-40 transition-all duration-300 ${scrolled ? "bg-background/90 shadow-soft backdrop-blur-md" : ""}`}>
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5">
           <a href="#home" className="shrink-0"><img src={logo.url} alt="KinePeer – Groepspraktijk Frank Luijs" className="h-14 w-auto sm:h-16" /></a>
           <nav className="hidden items-center gap-8 text-sm font-medium lg:flex">
@@ -104,7 +109,7 @@ function Index() {
       </header>
 
       {/* MOBILE MENU */}
-      <div className={`fixed inset-0 z-50 flex flex-col bg-primary text-primary-foreground transition-all duration-300 lg:hidden ${open ? "visible opacity-100" : "invisible opacity-0"}`}>
+      <div className={`fixed inset-x-0 bottom-0 top-9 z-50 flex flex-col bg-primary text-primary-foreground transition-all duration-300 lg:hidden ${open ? "visible opacity-100" : "invisible opacity-0"}`}>
         <div className="flex h-20 items-center justify-end px-5">
           <button aria-label="Menu sluiten" onClick={() => setOpen(false)} className="grid h-11 w-11 place-items-center rounded-full border border-primary-foreground/30"><X className="h-5 w-5" /></button>
         </div>
@@ -128,7 +133,7 @@ function Index() {
 
       <main>
         {/* HERO */}
-        <section id="home" className="mx-auto max-w-7xl px-5 pb-20 pt-28 lg:pt-36">
+        <section id="home" className="mx-auto max-w-7xl px-5 pb-20 pt-36 lg:pt-44">
           <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
             <Reveal>
               <Eyebrow>Kinesitherapie in Peer</Eyebrow>
@@ -145,7 +150,7 @@ function Index() {
             </Reveal>
           </div>
           <div className="mt-20 grid gap-4 sm:grid-cols-3">
-            {[[HeartHandshake, "Persoonlijke aanpak", "Een behandeling op maat, met tijd voor jouw verhaal."], [Users, "Specialisaties onder één dak", "Van sportkine tot pre- en postnatale begeleiding."], [Star, "Warm aanbevolen door patiënten", "Een vertrouwd adres in Peer."]].map(([I, t, d], i) => {
+            {[[HeartHandshake, "Persoonlijke aanpak", "Een behandeling op maat, met tijd voor jouw verhaal."], [Users, "Jong, dynamisch team", "Elk met een eigen specialisatie en interesse."], [Star, "Warm aanbevolen door patiënten", "Een vertrouwd adres in Peer."]].map(([I, t, d], i) => {
               const Icon = I as typeof Star;
               return <Reveal key={t as string} delay={i * 100} className="flex gap-4 rounded-3xl bg-card p-6 shadow-soft">
                 <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-secondary text-primary"><Icon className="h-5 w-5" /></div>
@@ -174,14 +179,14 @@ function Index() {
         {/* TEAM */}
         <section id="team" className="mx-auto max-w-7xl px-5 py-24">
           <Reveal className="max-w-2xl"><Eyebrow>Ons team</Eyebrow><h2 className="text-3xl text-primary sm:text-4xl lg:text-5xl">Gezichten die je herstel begeleiden.</h2></Reveal>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {TEAM.map((m, i) => (
               <Reveal key={i} delay={i * 90} className="group overflow-hidden rounded-3xl bg-card shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-lift">
                 <div className="grid aspect-[16/9] w-full place-items-center bg-secondary sm:aspect-[4/5]"><span className="grid h-20 w-20 sm:h-28 sm:w-28 place-items-center rounded-full bg-primary font-serif text-4xl text-primary-foreground transition-transform duration-500 group-hover:scale-105" aria-hidden="true">{m.initials}</span></div>
                 <div className="p-6">
                   <h3 className="text-xl text-primary">{m.name}</h3>
                   <p className="text-sm text-muted-foreground">{m.role}</p>
-                  <div className="mt-4 flex flex-wrap gap-2">{m.tags.map((t) => <span key={t} className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">{t}</span>)}</div>
+                  <div className="mt-4 flex flex-wrap gap-2">{m.tags.length > 0 && m.tags.map((t) => <span key={t} className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">{t}</span>)}</div>
                 </div>
               </Reveal>
             ))}
@@ -213,7 +218,7 @@ function Index() {
               ))}
             </Reveal>
             <Reveal delay={120}>
-              <div className="sticky top-28 rounded-3xl bg-secondary p-8">
+              <div className="sticky top-36 rounded-3xl bg-secondary p-8">
                 <Clock className="h-6 w-6 text-accent" />
                 <h3 className="mt-4 text-2xl text-primary">Openingsuren</h3>
                 <dl className="mt-6 divide-y divide-border">
@@ -234,14 +239,14 @@ function Index() {
             <div className="mt-12 grid gap-8 lg:grid-cols-2">
               <Reveal className="overflow-hidden rounded-3xl bg-card shadow-soft">
                 <div className="space-y-5 p-8">
-                  <a href="https://maps.google.com/?q=Burkel,3990+Peer" target="_blank" rel="noreferrer" className="flex items-center gap-4 hover:text-accent"><span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-secondary text-primary"><MapPin className="h-5 w-5" /></span>Burkel, 3990 Peer</a>
+                  <a href="https://maps.google.com/?q=Burkel+43,3990+Peer" target="_blank" rel="noreferrer" className="flex items-center gap-4 hover:text-accent"><span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-secondary text-primary"><MapPin className="h-5 w-5" /></span>Burkel 43, 3990 Peer</a>
                   <a href={`tel:${TEL}`} className="flex items-center gap-4 hover:text-accent"><span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-secondary text-primary"><Phone className="h-5 w-5" /></span>+32 475 91 73 06</a>
                   <a href="mailto:info@kinepeer.be" className="flex items-center gap-4 hover:text-accent"><span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-secondary text-primary"><Mail className="h-5 w-5" /></span>info@kinepeer.be</a>
                 </div>
-                <iframe title="Kaart KinePeer, Burkel Peer" src="https://maps.google.com/maps?q=Burkel%2C%203990%20Peer&z=15&output=embed" className="h-80 w-full border-0" loading="lazy" />
+                <iframe title="Kaart KinePeer, Burkel 43 Peer" src="https://maps.google.com/maps?q=Burkel%2043%2C%203990%20Peer&z=15&output=embed" className="h-80 w-full border-0" loading="lazy" />
               </Reveal>
-              <Reveal delay={120} className="scroll-mt-28 rounded-3xl bg-card p-8 shadow-soft">
-                <div id="afspraak" className="scroll-mt-28" />
+              <Reveal delay={120} className="scroll-mt-36 rounded-3xl bg-card p-8 shadow-soft">
+                <div id="afspraak" className="scroll-mt-36" />
                 <h3 className="text-2xl text-primary">Online afspraak aanvragen</h3>
                 <p className="mt-2 text-sm text-muted-foreground">Laat je gegevens en voorkeur achter. We bellen je binnen één werkdag terug om je afspraak te bevestigen.</p>
                 <form onSubmit={submit} className="mt-6 grid gap-4">
@@ -286,7 +291,7 @@ function Index() {
             <a href="https://www.facebook.com/profile.php?id=100067908440374" target="_blank" rel="noreferrer" aria-label="Facebook" className="mt-6 inline-grid h-11 w-11 place-items-center rounded-full border border-primary-foreground/30 hover:bg-accent"><Facebook className="h-5 w-5" /></a>
           </div>
           <div className="space-y-2 text-primary-foreground/80">
-            <p>Burkel, 3990 Peer</p>
+            <p>Burkel 43, 3990 Peer</p>
             <a href={`tel:${TEL}`} className="block hover:text-accent">+32 475 91 73 06</a>
             <a href="mailto:info@kinepeer.be" className="block hover:text-accent">info@kinepeer.be</a>
           </div>
@@ -294,7 +299,7 @@ function Index() {
         </div>
         <div className="border-t border-primary-foreground/15">
           <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-2 px-5 py-6 text-sm text-primary-foreground/60">
-            <p>© 2026 KinePeer</p><p className="text-xs">Website door Atelier Smits</p>
+            <p>© 2026 KinePeer</p><p className="text-xs">Ontwerpvoorstel door Atelier Smits</p>
           </div>
         </div>
       </footer>
