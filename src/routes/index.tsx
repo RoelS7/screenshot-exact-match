@@ -2,11 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import {
   Phone, Mail, MapPin, Menu, X, ChevronDown, HeartHandshake, Users, Star, Activity,
-  Dumbbell, Droplets, Crosshair, Baby, Clock, Facebook, MessageCircle, Plus,
+  Dumbbell, Droplets, Crosshair, Baby, Clock, Facebook, Plus,
 } from "lucide-react";
 import logo from "@/assets/kinepeer-logo.png.asset.json";
 
-const HERO = "https://images.unsplash.com/photo-1597764690523-15bea4c581c9?auto=format&fit=crop&w=1400&q=80";
+const HERO = "https://images.unsplash.com/photo-1645005513713-9e2b92a687d3?auto=format&fit=crop&w=1400&q=80";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -33,13 +33,13 @@ const SPECS = [
   { id: "prenataal", icon: Baby, title: "Pre- en postnatale kine", text: "Begeleiding tijdens de zwangerschap en na de bevalling, met bijzondere aandacht voor de bekkenbodem.", who: "Aanstaande en jonge mama's.", more: "We helpen bij bekkenpijn, rugklachten en incontinentie, en werken aan een veilig herstel van buikspieren en bekkenbodem na de bevalling." },
 ];
 const TEAM = [
-  { name: "Frank Luijs", role: "Kinesitherapeut, zaakvoerder", tags: ["Manuele therapie", "Sportkine"], img: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=800&q=80" },
-  { name: "Naam therapeut", role: "Kinesitherapeut", tags: ["Lymfedrainage", "Oedeem"], img: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80" },
-  { name: "Naam therapeut", role: "Kinesitherapeut", tags: ["Dry needling", "Sportrevalidatie"], img: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" },
-  { name: "Naam therapeut", role: "Kinesitherapeut", tags: ["Pre- en postnatale kine", "Bekkenbodem"], img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=80" },
+  { name: "Frank Luijs", initials: "FL", role: "Kinesitherapeut, zaakvoerder", tags: ["Manuele therapie", "Sportkine"] },
+  { name: "Naam therapeut", initials: "?", role: "Kinesitherapeut", tags: ["Lymfedrainage", "Oedeem"] },
+  { name: "Naam therapeut", initials: "?", role: "Kinesitherapeut", tags: ["Dry needling", "Sportrevalidatie"] },
+  { name: "Naam therapeut", initials: "?", role: "Kinesitherapeut", tags: ["Pre- en postnatale kine", "Bekkenbodem"] },
 ];
 const FAQ = [
-  ["Hoe maak ik een afspraak?", "Bel ons op 0475 91 73 06. Krijg je ons niet meteen te pakken? Laat een bericht na of stuur een WhatsApp, dan bellen we je zo snel mogelijk terug."],
+  ["Hoe maak ik een afspraak?", "Bel ons op 0475 91 73 06. Krijg je ons niet meteen te pakken? Laat een bericht na, dan bellen we je zo snel mogelijk terug."],
   ["Heb ik een voorschrift nodig?", "Voor terugbetaling heb je een voorschrift van je huisarts of specialist nodig. Zonder voorschrift kan je ook terecht, maar dan krijg je geen tussenkomst van de mutualiteit."],
   ["Hoe zit het met terugbetaling via de mutualiteit?", "Met een voorschrift betaalt de mutualiteit een groot deel van je behandeling terug. Je betaalt bij ons en krijgt een getuigschrift dat je bij je mutualiteit indient. Sommige aanvullende verzekeringen komen ook tussen in bijvoorbeeld dry needling."],
   ["Wat breng ik mee naar mijn eerste afspraak?", "Je identiteitskaart, je voorschrift, een handdoek en makkelijke kleding waarin je vlot kan bewegen. Heb je verslagen of beelden van onderzoeken? Breng die zeker ook mee."],
@@ -95,8 +95,8 @@ function Index() {
             ) : <a key={l} href={h} className="hover:text-accent">{l}</a>)}
           </nav>
           <div className="flex items-center gap-2">
-            <a href={`tel:${TEL}`} className={`${btnAccent} hidden sm:inline-flex`}><Phone className="h-4 w-4" />Bel voor een afspraak</a>
-            <a href={`tel:${TEL}`} aria-label="Bel voor een afspraak" className="grid h-11 w-11 place-items-center rounded-full bg-accent text-accent-foreground sm:hidden"><Phone className="h-4 w-4" /></a>
+            <a href={`tel:${TEL}`} className={`${btnAccent} hidden lg:inline-flex`}><Phone className="h-4 w-4" />Bel voor een afspraak</a>
+            <a href={`tel:${TEL}`} aria-label="Bel voor een afspraak" className="grid h-11 w-11 place-items-center rounded-full bg-accent text-accent-foreground lg:hidden"><Phone className="h-4 w-4" /></a>
             <button aria-label="Menu openen" onClick={() => setOpen(true)} className="grid h-11 w-11 place-items-center rounded-full border border-border lg:hidden"><Menu className="h-5 w-5" /></button>
           </div>
         </div>
@@ -120,11 +120,6 @@ function Index() {
         </nav>
       </div>
 
-      {/* WHATSAPP */}
-      <a href="https://wa.me/32475917306" target="_blank" rel="noreferrer" aria-label="Stuur ons een WhatsApp" className="fixed bottom-5 right-5 z-30 grid h-14 w-14 place-items-center rounded-full bg-whatsapp text-primary-foreground shadow-lift transition-transform hover:scale-110">
-        <MessageCircle className="h-7 w-7" />
-      </a>
-
       <main>
         {/* HERO */}
         <section id="home" className="mx-auto max-w-7xl px-5 pb-20 pt-28 lg:pt-36">
@@ -134,17 +129,17 @@ function Index() {
               <h1 className="text-4xl leading-[1.08] text-primary sm:text-5xl lg:text-6xl">Alle expertise voor jouw herstel, samen onder één dak in Peer.</h1>
               <p className="mt-6 max-w-xl text-lg text-muted-foreground">Groepspraktijk voor kinesitherapie, manuele therapie en sportrevalidatie. Persoonlijke begeleiding, van eerste klacht tot volledig herstel.</p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href="#contact" className={btnAccent}>Maak online afspraak</a>
+                <a href={`tel:${TEL}`} className={btnAccent}><Phone className="h-4 w-4" />Bel voor een afspraak</a>
                 <a href="#specialisaties" className={btnOutline}>Onze specialisaties</a>
               </div>
             </Reveal>
             <Reveal delay={150} className="relative">
               <div className="absolute -inset-4 -z-10 rounded-[3rem] bg-secondary sm:-inset-6" />
-              <img src={HERO} alt="Kinesitherapeut begeleidt een patiënt bij een oefening" className="aspect-[4/5] w-full rounded-[2.5rem] rounded-tr-[8rem] object-cover shadow-lift sm:aspect-[5/5]" />
+              <img src={HERO} alt="Kinesitherapeut begeleidt een patiënt bij oefeningen met gewichtjes" className="aspect-[4/5] w-full rounded-[2.5rem] rounded-tr-[8rem] object-cover shadow-lift sm:aspect-[5/5]" />
             </Reveal>
           </div>
           <div className="mt-20 grid gap-4 sm:grid-cols-3">
-            {[[HeartHandshake, "Persoonlijke aanpak", "Een behandeling op maat, met tijd voor jouw verhaal."], [Users, "Breed team van specialisten", "Verschillende expertises, nauw samenwerkend."], [Star, "100% aanbevolen door patiënten", "Een vertrouwd adres voor heel wat gezinnen in Peer."]].map(([I, t, d], i) => {
+            {[[HeartHandshake, "Persoonlijke aanpak", "Een behandeling op maat, met tijd voor jouw verhaal."], [Users, "Specialisaties onder één dak", "Van sportkine tot pre- en postnatale begeleiding."], [Star, "Warm aanbevolen door patiënten", "Een vertrouwd adres in Peer."]].map(([I, t, d], i) => {
               const Icon = I as typeof Star;
               return <Reveal key={t as string} delay={i * 100} className="flex gap-4 rounded-3xl bg-card p-6 shadow-soft">
                 <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-secondary text-primary"><Icon className="h-5 w-5" /></div>
@@ -176,7 +171,7 @@ function Index() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {TEAM.map((m, i) => (
               <Reveal key={i} delay={i * 90} className="group overflow-hidden rounded-3xl bg-card shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-lift">
-                <div className="overflow-hidden"><img src={m.img} alt={m.name} className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+                <div className="grid aspect-[4/5] w-full place-items-center bg-secondary"><span className="grid h-28 w-28 place-items-center rounded-full bg-primary font-serif text-4xl text-primary-foreground transition-transform duration-500 group-hover:scale-105" aria-hidden="true">{m.initials}</span></div>
                 <div className="p-6">
                   <h3 className="text-xl text-primary">{m.name}</h3>
                   <p className="text-sm text-muted-foreground">{m.role}</p>
@@ -266,7 +261,7 @@ function Index() {
           <div>
             <p className="font-serif text-2xl">KinePeer</p>
             <p className="text-primary-foreground/70">Groepspraktijk Frank Luijs</p>
-            <a href="https://www.facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook" className="mt-6 inline-grid h-11 w-11 place-items-center rounded-full border border-primary-foreground/30 hover:bg-accent"><Facebook className="h-5 w-5" /></a>
+            <a href="https://www.facebook.com/profile.php?id=100067908440374" target="_blank" rel="noreferrer" aria-label="Facebook" className="mt-6 inline-grid h-11 w-11 place-items-center rounded-full border border-primary-foreground/30 hover:bg-accent"><Facebook className="h-5 w-5" /></a>
           </div>
           <div className="space-y-2 text-primary-foreground/80">
             <p>Burkel, 3990 Peer</p>
