@@ -34,7 +34,7 @@ const SPECS = [
 ];
 const TEAM = [
   { name: "Frank Luijs", initials: "FL", role: "Kinesitherapeut, zaakvoerder", tags: ["Manuele therapie", "Sportkine"] },
-  { name: "Naam therapeut", initials: "?", role: "Kinesitherapeut", tags: ["Lymfedrainage", "Oedeem"] },
+  { name: "Charlotte Hoeben", initials: "CH", role: "Kinesitherapeut", tags: ["Lymfedrainage", "Oedeem"] },
   { name: "Naam therapeut", initials: "?", role: "Kinesitherapeut", tags: ["Dry needling", "Sportrevalidatie"] },
   { name: "Naam therapeut", initials: "?", role: "Kinesitherapeut", tags: ["Pre- en postnatale kine", "Bekkenbodem"] },
 ];
