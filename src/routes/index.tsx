@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import {
-  Phone, Mail, MapPin, Menu, X, ChevronDown, HeartHandshake, Users, Star, Activity,
+  Phone, Mail, MapPin, Menu, X, ChevronDown, HeartHandshake, Users, Star, Hand, Sparkles, Smile, Bandage, Brain, HeartPulse, Waves,
   Dumbbell, Droplets, Crosshair, Baby, Clock, Facebook, MessageCircle, Plus,
 } from "lucide-react";
 import logo from "@/assets/kinepeer-logo.png.asset.json";
@@ -27,11 +27,17 @@ export const Route = createFileRoute("/")({
 
 const TEL = "+32475917306";
 const SPECS = [
-  { id: "kinesitherapie", icon: Activity, title: "Kinesitherapie & manuele therapie", text: "Gerichte behandeling van rug-, nek- en gewrichtsklachten met oefentherapie en manuele technieken. We zoeken de oorzaak, niet enkel het symptoom.", who: "Voor iedereen met pijn of stijfheid, en voor revalidatie na een operatie.", more: "Na een grondig onderzoek stellen we samen een behandelplan op. Je krijgt oefeningen mee voor thuis, zodat je zelf actief bijdraagt aan je herstel." },
-  { id: "sportkine", icon: Dumbbell, title: "Sportkine", text: "Van een verstuikte enkel tot een hardnekkige knieblessure: we begeleiden je stap voor stap terug naar je sport.", who: "Recreatieve en competitiesporters, jong en oud.", more: "We werken aan kracht, stabiliteit en belastbaarheid, met aandacht voor blessurepreventie. Zo keer je veilig én sterker terug." },
-  { id: "lymfedrainage", icon: Droplets, title: "Lymfedrainage", text: "Een zachte massagetechniek die vochtophoping vermindert en het lymfesysteem ondersteunt.", who: "Mensen met oedeem, na operaties of na kankerbehandelingen.", more: "Lymfedrainage wordt vaak gecombineerd met compressie en oefeningen. We stemmen de behandeling af op jouw situatie en volgen ze nauw op." },
-  { id: "dry-needling", icon: Crosshair, title: "Dry needling", text: "Met een fijne naald behandelen we triggerpoints in gespannen spieren. Dat geeft vaak snel verlichting.", who: "Wie last heeft van hardnekkige spierpijn, spanning of hoofdpijn.", more: "Dry needling is een aanvulling op je behandeling, nooit een losstaande oplossing. We combineren het steeds met oefentherapie." },
-  { id: "prenataal", icon: Baby, title: "Pre- en postnatale kine", text: "Begeleiding tijdens de zwangerschap en na de bevalling, met bijzondere aandacht voor de bekkenbodem.", who: "Aanstaande en jonge mama's.", more: "We helpen bij bekkenpijn, rugklachten en incontinentie, en werken aan een veilig herstel van buikspieren en bekkenbodem na de bevalling." },
+  { id: "manuele-therapie", icon: Hand, title: "Manuele therapie", text: "Een specialisatie binnen de kinesitherapie die het lichaam als één geheel bekijkt, met bijzondere aandacht voor de wervelkolom.", who: "Rug-, nek- en gewrichtsklachten die blijven terugkomen.", more: "We zoeken de onderliggende oorzaak van je pijn, in plaats van enkel lokaal de klachten te verzachten." },
+  { id: "osteopathie", icon: Sparkles, title: "Osteopathie", text: "Op zoek naar de oorzaak van klachten die moeilijk te behandelen zijn of steeds terugkomen.", who: "Wie al lang met dezelfde klachten rondloopt.", more: "Met zachte manuele technieken brengen we de structuren die de pijn uitlokken terug in balans." },
+  { id: "lymfedrainage", icon: Droplets, title: "Lymfedrainage", text: "Een zachte massagetechniek die vochtophoping vermindert en het lymfesysteem ondersteunt.", who: "Mensen met oedeem, na een operatie of een behandeling.", more: "We stemmen de behandeling af op jouw situatie en volgen ze nauw op." },
+  { id: "prenataal", icon: Baby, title: "Pre- en postnatale kine", text: "Begeleiding tijdens de zwangerschap en na de bevalling.", who: "Aanstaande en jonge mama's.", more: "Met aandacht voor rug- en bekkenklachten en een veilig herstel na de bevalling." },
+  { id: "dry-needling", icon: Crosshair, title: "Dry needling", text: "Met een fijne naald behandelen we triggerpoints in gespannen spieren.", who: "Hardnekkige spierpijn en spanning.", more: "Altijd als onderdeel van een ruimere behandeling, samen met oefentherapie." },
+  { id: "sportrevalidatie", icon: Dumbbell, title: "Sportrevalidatie", text: "Van een verstuikte enkel tot een hardnekkige knieblessure: stap voor stap terug naar je sport.", who: "Recreatieve en competitiesporters.", more: "We werken aan kracht, stabiliteit en belastbaarheid, met aandacht voor blessurepreventie." },
+  { id: "kaakproblemen", icon: Smile, title: "Kaakproblemen", text: "Behandeling van klachten aan het kaakgewricht en de kauwspieren.", who: "Kaakpijn, klikken, tandenknarsen of hoofdpijn vanuit de kaak.", more: "Vaak in samenwerking met je tandarts of orthodontist." },
+  { id: "kinesio-taping", icon: Bandage, title: "Kinesio taping", text: "Elastische tape die spieren en gewrichten ondersteunt zonder je beweging te beperken.", who: "Sporters en iedereen die extra ondersteuning nodig heeft.", more: "Een handige aanvulling op je behandeling, ook tussen de sessies door." },
+  { id: "neurologische-revalidatie", icon: Brain, title: "Neurologische revalidatie", text: "Begeleiding bij aandoeningen van het zenuwstelsel, gericht op zo veel mogelijk zelfstandigheid.", who: "Bijvoorbeeld na een beroerte of bij een neurologische aandoening.", more: "We werken aan evenwicht, coördinatie en dagelijkse bewegingen." },
+  { id: "hartcoherentie", icon: HeartPulse, title: "Hartcoherentie", text: "Ademhalingsoefeningen die je helpen om stress en spanning onder controle te krijgen.", who: "Wie last heeft van stress of onrust.", more: "Eenvoudige technieken die je daarna zelf thuis kan toepassen." },
+  { id: "nst", icon: Waves, title: "NST", text: "Neurostructurele Integratie Therapie: een zachte techniek die het lichaam helpt om zichzelf terug in evenwicht te brengen.", who: "Uiteenlopende fysieke klachten.", more: "Het lichaam wordt gezien als een zichzelf regulerend systeem." },
 ];
 const TEAM: { name: string; initials: string; role: string; tags: string[] }[] = [
   { name: "Frank Luijs", initials: "FL", role: "Kinesitherapeut, zaakvoerder", tags: [] },
@@ -39,12 +45,11 @@ const TEAM: { name: string; initials: string; role: string; tags: string[] }[] =
   { name: "Jelle Van der Have", initials: "JV", role: "Team KinePeer", tags: [] },
 ];
 const FAQ = [
-  ["Hoe maak ik een afspraak?", "Bel ons op 0475 91 73 06. Krijg je ons niet meteen te pakken? Of vraag online een afspraak aan via het formulier onderaan, of stuur een WhatsApp. Tijdens behandelingen nemen we niet altijd op, maar we bellen je zo snel mogelijk terug."],
-  ["Heb ik een voorschrift nodig?", "Voor terugbetaling heb je een voorschrift van je huisarts of specialist nodig. Zonder voorschrift kan je ook terecht, maar dan krijg je geen tussenkomst van de mutualiteit."],
-  ["Hoe zit het met terugbetaling via de mutualiteit?", "Met een voorschrift betaalt de mutualiteit een groot deel van je behandeling terug. Je betaalt bij ons en krijgt een getuigschrift dat je bij je mutualiteit indient. Sommige aanvullende verzekeringen komen ook tussen in bijvoorbeeld dry needling."],
-  ["Wat breng ik mee naar mijn eerste afspraak?", "Je identiteitskaart, je voorschrift, een handdoek en makkelijke kleding waarin je vlot kan bewegen. Heb je verslagen of beelden van onderzoeken? Breng die zeker ook mee."],
-  ["Wat als ik moet annuleren?", "Laat het ons minstens 24 uur op voorhand weten. Zo kunnen we iemand anders helpen. Niet-verwittigde afspraken kunnen we aanrekenen."],
-  ["Is er parking?", "Ja, je kan gratis parkeren vlak bij de praktijk."],
+  ["Hoe maak ik een afspraak?", "Behandelingen gebeuren uitsluitend op afspraak. Bel ons op 0475 91 73 06. Zijn we niet meteen bereikbaar? Laat een boodschap na met je naam en telefoonnummer, dan bellen we je terug."],
+  ["Wat breng ik mee naar mijn eerste afspraak?", "Je identiteitskaart, een klevertje van het ziekenfonds, het voorschrift van je arts en eventuele verslagen of resultaten van onderzoeken."],
+  ["Hoe zit het met terugbetaling?", "Na betaling krijg je getuigschriften mee die je naar je ziekenfonds stuurt voor de terugbetaling. Betalen kan cash of via overschrijving."],
+  ["Wat als ik moet annuleren?", "Annuleer uiterlijk 24 uur op voorhand. Zo kunnen we de vrijgekomen behandeling nog aan iemand anders geven."],
+  ["Komen jullie ook aan huis?", "Ja, huisbezoeken zijn mogelijk. Vraag er gerust naar bij het maken van je afspraak."],
 ];
 const NAV = [["Home", "#home"], ["Team", "#team"], ["Specialisaties", "#specialisaties"], ["Praktisch", "#praktisch"], ["Contact", "#contact"]];
 
@@ -138,7 +143,7 @@ function Index() {
             <Reveal>
               <Eyebrow>Kinesitherapie in Peer</Eyebrow>
               <h1 className="text-4xl leading-[1.08] text-primary sm:text-5xl lg:text-6xl">Alle expertise voor jouw herstel, samen onder één dak in Peer.</h1>
-              <p className="mt-6 max-w-xl text-lg text-muted-foreground">Groepspraktijk voor kinesitherapie, manuele therapie en sportrevalidatie. Persoonlijke begeleiding, van eerste klacht tot volledig herstel.</p>
+              <p className="mt-6 max-w-xl text-lg text-muted-foreground">Een jonge, dynamische groep kinesitherapeuten, elk met een eigen specialisatie. Voor een doelgerichte en persoonlijke behandeling van jouw klachten.</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href={`tel:${TEL}`} className={btnAccent}><Phone className="h-4 w-4" />Bel voor een afspraak</a>
                 <a href="#afspraak" className={btnOutline}>Online afspraak aanvragen</a>
@@ -220,12 +225,8 @@ function Index() {
             <Reveal delay={120}>
               <div className="sticky top-36 rounded-3xl bg-secondary p-8">
                 <Clock className="h-6 w-6 text-accent" />
-                <h3 className="mt-4 text-2xl text-primary">Openingsuren</h3>
-                <dl className="mt-6 divide-y divide-border">
-                  {[["Maandag – vrijdag", "8u – 20u"], ["Zaterdag", "Op afspraak"], ["Zondag", "Gesloten"]].map(([d, h]) => (
-                    <div key={d} className="flex justify-between py-3"><dt>{d}</dt><dd className="font-semibold">{h}</dd></div>
-                  ))}
-                </dl>
+                <h3 className="mt-4 text-2xl text-primary">Uitsluitend op afspraak</h3>
+                <p className="mt-4 text-muted-foreground">Bel ons voor een afspraak. Niet meteen bereikbaar? Laat een boodschap na, dan bellen we je terug.</p>
                 <a href={`tel:${TEL}`} className={`${btnAccent} mt-6 w-full`}><Phone className="h-4 w-4" />0475 91 73 06</a>
               </div>
             </Reveal>
