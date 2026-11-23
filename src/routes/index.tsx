@@ -95,7 +95,7 @@ function Index() {
             ) : <a key={l} href={h} className="hover:text-accent">{l}</a>)}
           </nav>
           <div className="flex items-center gap-2">
-            <a href={`tel:${TEL}`} className={`${btnAccent} hidden lg:inline-flex`}><Phone className="h-4 w-4" />Bel voor een afspraak</a>
+            <div className="hidden lg:block"><a href={`tel:${TEL}`} className={btnAccent}><Phone className="h-4 w-4" />Bel voor een afspraak</a></div>
             <a href={`tel:${TEL}`} aria-label="Bel voor een afspraak" className="grid h-11 w-11 place-items-center rounded-full bg-accent text-accent-foreground lg:hidden"><Phone className="h-4 w-4" /></a>
             <button aria-label="Menu openen" onClick={() => setOpen(true)} className="grid h-11 w-11 place-items-center rounded-full border border-border lg:hidden"><Menu className="h-5 w-5" /></button>
           </div>
@@ -176,7 +176,7 @@ function Index() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {TEAM.map((m, i) => (
               <Reveal key={i} delay={i * 90} className="group overflow-hidden rounded-3xl bg-card shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-lift">
-                <div className="grid aspect-[4/5] w-full place-items-center bg-secondary"><span className="grid h-28 w-28 place-items-center rounded-full bg-primary font-serif text-4xl text-primary-foreground transition-transform duration-500 group-hover:scale-105" aria-hidden="true">{m.initials}</span></div>
+                <div className="grid aspect-[16/9] w-full place-items-center bg-secondary sm:aspect-[4/5]"><span className="grid h-20 w-20 sm:h-28 sm:w-28 place-items-center rounded-full bg-primary font-serif text-4xl text-primary-foreground transition-transform duration-500 group-hover:scale-105" aria-hidden="true">{m.initials}</span></div>
                 <div className="p-6">
                   <h3 className="text-xl text-primary">{m.name}</h3>
                   <p className="text-sm text-muted-foreground">{m.role}</p>
